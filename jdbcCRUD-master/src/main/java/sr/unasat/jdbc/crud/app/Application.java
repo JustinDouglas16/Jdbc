@@ -40,17 +40,17 @@ public class Application {
 //        System.out.println(ci.findAllRecords());
 
         AutoRepository autoRepo = new AutoRepository();
-        List<Auto> autoList = autoRepo.findAllRecords();
-        for (Auto auto : autoList){
-            System.out.println(auto);
-        }
+//        List<Auto> autoList = autoRepo.findAllRecords();
+//        for (Auto auto : autoList){
+//            System.out.println(auto);
+//        }
+////
+//        Auto recordFound = autoRepo.findOneRecord(1, "Benz");
+//        System.out.println("single record: " + recordFound);
 
-        Auto recordFound = autoRepo.findOneRecord(1, "Benz");
-        System.out.println("single record: " + autoRepo);
-
-
-//        Auto benz = new Auto(1,"Toyota", 1);
-//        autoRepo.insertOneRecord(benz);
+//
+        Auto benz = new Auto(1,"Toyota", 1);
+        autoRepo.insertOneRecord(benz);
 
 //        LandRepository landRepo = new LandRepository();
 //

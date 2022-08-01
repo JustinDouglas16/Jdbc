@@ -35,7 +35,7 @@ public class AutoRepository {
         Statement stmt = null;
         try {
             stmt = connection.createStatement();
-            String sql = "select auto.id, auto.model, p.id pid" +
+            String sql = "select auto.id, auto.model, p.id pid, p.naam" +
                     " from auto" +
                     " join persoon p" +
                     " on p.id = auto.persoon_id";
@@ -48,8 +48,8 @@ public class AutoRepository {
                 String model = rs.getString("model");
 
                 int persoonId = rs.getInt("pid");
-//                String persoonNaam = rs.getString("pnaam");
-                Persoon persoon = new Persoon(persoonId);
+                String persoonNaam = rs.getString("naam");
+                Persoon persoon = new Persoon(persoonId, persoonNaam);
 
 //                int landId = rs.getInt("lid");
 //                String landNaam = rs.getString("land_naam");
@@ -113,7 +113,7 @@ public class AutoRepository {
         Auto auto = null;
         PreparedStatement stmt = null;
         try {
-            String sql = "select auto.id, auto.model, p.id pid" +
+            String sql = "select auto.id, auto.model, p.id pid, p.naam" +
                     " from auto" +
                     " join persoon p" +
                     " on p.id = auto.persoon_id where auto.id = ? or auto.model = ?";
@@ -131,9 +131,9 @@ public class AutoRepository {
                 int persoonId = rs.getInt("pid");
                 Persoon persoon = new Persoon(persoonId);
 
-                int landId = rs.getInt("lid");
-                String landNaam = rs.getString("land_naam");
-                Land land = new Land(landId, landNaam);
+//                int landId = rs.getInt("lid");
+//                String landNaam = rs.getString("land_naam");
+//                Land land = new Land(landId, landNaam);
 
                 auto = new Auto(id, model, persoon);
 

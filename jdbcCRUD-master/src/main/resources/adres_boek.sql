@@ -118,4 +118,9 @@
     /*!40000 ALTER TABLE `auto` ENABLE KEYS */;
     UNLOCK TABLES;
 
+    ALTER TABLE `adres_boek`.`auto`
+    ADD CONSTRAINT `person_fk`
+        FOREIGN KEY (`persoon_id`)
+        REFERENCES `adres_boek`.`persoon` (`id`);
+
 
